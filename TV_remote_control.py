@@ -1,12 +1,12 @@
 '''
 TELEVISION REMOTE CONTROL
 
-the volume has to be between 0 and 10
+The volume has to be between 0 and 10
 the channel between 1 and 50
 if the television is off the other buttons are off also
 buttons: power, mute, volume up, volume down, channel up, channel down, setting, get info
 
-Made by Alessandro Silvestri - 2022 <alessandro.silvestri.work@gmail.com>
+Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 '''
 
 class Television():
@@ -83,3 +83,4 @@ my_tv.volume_down()
 my_tv.get_info()
 my_tv.power()
 ########### Using the object ###########
+
