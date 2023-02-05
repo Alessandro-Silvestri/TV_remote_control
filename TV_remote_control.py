@@ -9,19 +9,25 @@ buttons: power, mute, volume up, volume down, channel up, channel down, setting,
 Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 '''
 
-class Television():
-    def __init__(self) -> None:
+from dimmer_switch import Dimmer_switch
+
+
+
+class Television(Dimmer_switch):
+    def __init__(self):
         self.is_power_on = False
         self.is_mute_on = False
         self.volume = 0
         self.channel = 1
+        super().__init__() # I take all the values from Dimmer_switch class
 
     def get_info(self):
-        '''print all the television values'''
+        '''print all the television values, at the end the dim values'''
         print("Power: ",self.is_power_on)
         print("Mute: ", self.is_mute_on)
         print("Volume: ", self.volume)
         print("Channel: ", self.channel)
+        self.dim_display() # I use the method of the class Dimmer_switch
 
     def power(self):
         '''button power on'''
@@ -30,6 +36,8 @@ class Television():
             self.is_mute_on = False
             self.volume = 0
             self.channel = 1
+            self.dim_power = False
+            self.dim_brightness = 0
 
     def mute(self):
         if not self.is_power_on: return # if the TV is off you can't change the values
@@ -71,16 +79,26 @@ class Television():
         if self.channel < 1:
             self.channel = 1
 
+
 ########### Using the object ###########
 my_tv = Television()
-my_tv.power()
 
-for i in range(5):
-    my_tv.volume_up()
+# using the dimmer on the remote control
+my_tv.dim_power_button()
+my_tv.dim_rise_level()
+my_tv.dim_rise_level()
+my_tv.dim_rise_level()
 
-my_tv.channel_set(12)
-my_tv.volume_down()
+# using the remote control
+my_tv.power() # here I turn on the TV
+my_tv.channel_set(5)
+my_tv.channel_up()
+my_tv.volume_up()
+my_tv.volume_up()
+my_tv.volume_up()
 my_tv.get_info()
-my_tv.power()
+
+
+
 ########### Using the object ###########
 

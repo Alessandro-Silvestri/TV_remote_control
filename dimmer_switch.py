@@ -5,37 +5,37 @@ feautures: Turn on / off, Raise level, Lower level, Show values
 
 class Dimmer_switch():
     def __init__(self):
-        self.power = False
-        self.brightness = 0
+        self.dim_power = False
+        self.dim_brightness = 0
     
-    def power_button(self):
+    def dim_power_button(self):
         '''on/off button'''
-        self.power = not self.power
-        if not self.power:
-            self.brightness = 0
+        self.dim_power = not self.dim_power
+        if not self.dim_power:
+            self.dim_brightness = 0
 
-    def rise_level(self):
+    def dim_rise_level(self):
         '''increase the brightness of 1 if power is on'''
-        if self.power:
-            self.brightness += 1
-            if self.brightness > 10:
-                self.brightness = 10
+        if self.dim_power:
+            self.dim_brightness += 1
+            if self.dim_brightness > 10:
+                self.dim_brightness = 10
 
-    def lower_level(self):
+    def dim_lower_level(self):
         '''lower the brightness of 1 if power is on'''
-        if self.power:
-            self.brightness -= 1
-            if self.brightness < 0:
-                self.brightness = 0
+        if self.dim_power:
+            self.dim_brightness -= 1
+            if self.dim_brightness < 0:
+                self.dim_brightness = 0
 
-    def display(self):
+    def dim_display(self):
         '''display the values: power and brightness'''
         print(f'''
-        power: {self.power}
-        brightness level: {self.brightness}
+        dimmer power: {self.dim_power}
+        dimmer brightness level: {self.dim_brightness}
         ''')
 
 # using the object
-my_dimmer = Dimmer_switch()
-my_dimmer.rise_level()
-my_dimmer.display()
+# my_dimmer = Dimmer_switch()
+# my_dimmer.dim_power_button()
+# my_dimmer.dim_display()
