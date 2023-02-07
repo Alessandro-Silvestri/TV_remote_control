@@ -1,6 +1,8 @@
 '''
 DIMMER SWITCH
+Class representation of a Dimmer.
 feautures: Turn on / off, Raise level, Lower level, Show values
+Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 '''
 
 class Dimmer_switch():

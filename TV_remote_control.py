@@ -11,8 +11,6 @@ Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 
 from dimmer_switch import Dimmer_switch
 
-
-
 class Television(Dimmer_switch):
     def __init__(self):
         self.is_power_on = False
@@ -27,7 +25,7 @@ class Television(Dimmer_switch):
         print("Mute: ", self.is_mute_on)
         print("Volume: ", self.volume)
         print("Channel: ", self.channel)
-        self.dim_display() # I use the method of the class Dimmer_switch
+        self.dim_display() # here I use the method of the class Dimmer_switch
 
     def power(self):
         '''button power on'''
@@ -73,8 +71,8 @@ class Television(Dimmer_switch):
             self.channel = 1
 
     def channel_set(self, num: int):
+        '''buttons setting the channels, it can't go under 1'''
         if not self.is_power_on: return # if the TV is off you can't change the values
-        '''buttons setting the channel it can't go under 1'''
         self.channel = num
         if self.channel < 1:
             self.channel = 1
@@ -82,6 +80,7 @@ class Television(Dimmer_switch):
 
 ########### Using the object ###########
 my_tv = Television()
+my_tv2 = Television()
 
 # using the dimmer on the remote control
 my_tv.dim_power_button()
@@ -97,8 +96,9 @@ my_tv.volume_up()
 my_tv.volume_up()
 my_tv.volume_up()
 my_tv.get_info()
+#################################
 
 
-
-########### Using the object ###########
-
+#### using the second object####
+my_tv2.get_info()
+###############################
